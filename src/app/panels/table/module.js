@@ -114,6 +114,10 @@ function (angular, app, _, kbn, moment) {
        */
       localTime: false,
       /** @scratch /panels/table/5
+       * momentsAgo:: Set to true to display time in a relative format (x minutes ago)
+       */
+      momentsAgo: false,
+      /** @scratch /panels/table/5
        * timeField:: If localTime is set to true, this field will be adjusted to the browsers local time
        */
       timeField: '@timestamp',
@@ -279,7 +283,7 @@ function (angular, app, _, kbn, moment) {
       }
 
       sort = [$scope.ejs.Sort($scope.panel.sort[0]).order($scope.panel.sort[1])];
-      if($scope.panel.localTime) {
+      if($scope.panel.localTime || $scope.panel.momentsAgo) {
         sort.push($scope.ejs.Sort($scope.panel.timeField).order($scope.panel.sort[1]));
       }
 
@@ -493,6 +497,12 @@ function (angular, app, _, kbn, moment) {
   module.filter('tableLocalTime', function(){
     return function(text,event) {
       return moment(event.sort[1]).format("YYYY-MM-DDTHH:mm:ss.SSSZ");
+    };
+  });
+
+  module.filter('tableLocalTimeMomentsAgo', function() {
+    return function(text,event) {
+      return moment(event.sort[1]).fromNow();
     };
   });
 

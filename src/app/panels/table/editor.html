@@ -23,6 +23,9 @@
       <div class="editor-option">
         <label class="small">Local Time <tip>Adjust time field to browser's local time</tip></label><input type="checkbox" ng-change="set_refresh(true)" ng-model="panel.localTime" ng-checked="panel.localTime">
       </div>
+      <div class="editor-option">
+        <label class="small">Relative Time <tip>Adjust time field to time relative to browser's local time</tip></label><input type="checkbox" ng-change="set_refresh(true)" ng-model="panel.momentsAgo" ng-checked="panel.momentsAgo">
+      </div>
       <div class="editor-option" ng-show="panel.localTime">
         <label class="small">Time Field</label>
         <input type="text" class="input-small" ng-model="panel.timeField" ng-change="set_refresh(true)" bs-typeahead="fields.list">

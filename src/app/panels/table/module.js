@@ -141,6 +141,12 @@ function (angular, app, _, kbn, moment) {
       },
       style   : {'font-size': '9pt'},
       normTimes : true,
+      /**
+       * fieldAliases:: Hold aliases for field names
+       */
+      fieldAliases : {
+
+      },
     };
     _.defaults($scope.panel,_d);
 

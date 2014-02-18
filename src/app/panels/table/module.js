@@ -121,6 +121,10 @@ function (angular, app, _, kbn, moment) {
        * timeField:: If localTime is set to true, this field will be adjusted to the browsers local time
        */
       timeField: '@timestamp',
+      /** @scartch /panels/table/5
+       * timeFormat:: The format in which to display the time field
+       */
+      timeFormat: 'YYYY-MM-DD HH:mm',
       /** @scratch /panels/table/5
        * spyable:: Set to false to disable the inspect icon
        */
@@ -495,8 +499,9 @@ function (angular, app, _, kbn, moment) {
 
   // WIP
   module.filter('tableLocalTime', function(){
-    return function(text,event) {
-      return moment(event.sort[1]).format("YYYY-MM-DDTHH:mm:ss.SSSZ");
+    return function(text,event,format) {
+      format = _.isUndefined(format) ? "YYYY-MM-DDTHH:mm:ss.SSSZ" : format;
+      return moment(event.sort[1]).format(format);
     };
   });
 

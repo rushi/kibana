@@ -124,7 +124,7 @@ function (angular, app, _, kbn, moment) {
       /** @scartch /panels/table/5
        * timeFormat:: The format in which to display the time field
        */
-      timeFormat: 'YYYY-MM-DD HH:mm',
+      timeFormat: 'YYYY-MM-DDTHH:mm:ss.SSSZ',
       /** @scratch /panels/table/5
        * spyable:: Set to false to disable the inspect icon
        */

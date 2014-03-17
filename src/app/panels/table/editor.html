@@ -41,8 +41,13 @@
         <input bs-typeahead="fields.list" type="text" class="input-small" ng-model='newfield'>
         <button class="btn" ng-click="panel.fields = _.toggleInOut(panel.fields,newfield);newfield=''"><i class="icon-plus"></i></button>
       </form><br>
+<<<<<<< HEAD
       <span bs-popover="'app/panels/table/fieldAlias.html'" style="cursor:pointer;margin-left:3px" ng-repeat="field in panel.fields" class="label">{{field}}<i class="pointer icon-remove-sign" ng-click="panel.fields = _.toggleInOut(panel.fields,field)"></i></span>
       <h5>Hightlighted Fields</h5>
+=======
+      <span style="margin-left:3px" ng-repeat="field in panel.fields" class="label">{{field}} <i class="pointer icon-remove-sign" ng-click="panel.fields = _.toggleInOut(panel.fields,field)"></i></span>
+      <h5>Highlighted Fields</h5>
+>>>>>>> 8a0c8d7d4dad886e3063908dffc27dd9540f3840
       <form class="input-append editor-option">
         <input bs-typeahead="fields.list" type="text" class="input-small" ng-model='newhighlight' ng-change="set_refresh(true)">
         <button class="btn" ng-click="panel.highlight = _.toggleInOut(panel.highlight,newhighlight);newhighlight=''"><i class="icon-plus"></i></button>
